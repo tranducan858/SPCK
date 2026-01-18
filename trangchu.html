@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="home-container">
+        <h1>Chào mừng đến trang chủ!</h1>
+        <p>Bạn đã đăng nhập thành công.</p>
+        <button id="logout-btn">Đăng xuất</button>
+        <button id="check-storage-btn">Kiểm tra dữ liệu lưu</button>
+    </div>
+
+    <script>
+        // Check if logged in
+        const isLoggedIn = localStorage.getItem('isLoggedIn');
+        if (!isLoggedIn) {
+            window.location.href = 'auth.html';
+        }
+
+        const logoutBtn = document.getElementById('logout-btn');
+        const checkStorageBtn = document.getElementById('check-storage-btn');
+
+        logoutBtn.addEventListener('click', () => {
+            localStorage.removeItem('isLoggedIn');
+            localStorage.setItem('loginEmail', '');
+            localStorage.setItem('loginPassword', '');
+            localStorage.setItem('registerEmail', '');
+            localStorage.setItem('registerUsername', '');
+            localStorage.removeItem('registeredUsers');
+            window.location.href = 'auth.html';
+        });
+
+        checkStorageBtn.addEventListener('click', () => {
+            const loginEmail = localStorage.getItem('loginEmail') || 'Không có';
+            const loginPassword = localStorage.getItem('loginPassword') || 'Không có';
+            const registerEmail = localStorage.getItem('registerEmail') || 'Không có';
+            const registerUsername = localStorage.getItem('registerUsername') || 'Không có';
+            alert(`Dữ liệu lưu trong localStorage:\n\nĐăng nhập:\nEmail: ${loginEmail}\nMật khẩu: ${loginPassword}\n\nĐăng ký:\nEmail: ${registerEmail}\nTên tài khoản: ${registerUsername}`);
+        });
+    </script>
+</body>
+</html>

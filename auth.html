@@ -63,6 +63,7 @@
 
             <div class="footer-box">
                 <small>Trang này được bảo vệ bởi Google reCAPTCHA.</small>
+                <button id="show-storage-btn" style="margin-top: 10px; padding: 5px 10px; display: none;">Hiển thị dữ liệu lưu</button>
             </div>
         </div>
     </div>
@@ -72,6 +73,102 @@
         const registerToggle = document.getElementById('register-toggle');
         const loginForm = document.getElementById('login-form');
         const registerForm = document.getElementById('register-form');
+
+        // Elements for login form
+        const loginEmail = document.getElementById('login-email');
+        const loginPassword = document.getElementById('login-password');
+        const loginRemember = loginForm.querySelector('input[type="checkbox"]');
+        const loginSubmit = loginForm.querySelector('.login-btn');
+
+        // Elements for register form
+        const registerEmail = document.getElementById('register-email');
+        const registerUsername = document.getElementById('register-username');
+        const registerPassword = document.getElementById('register-password');
+        const registerRemember = registerForm.querySelector('input[type="checkbox"]');
+        const registerSubmit = registerForm.querySelector('.login-btn');
+
+        // Button to show saved data
+        const showStorageBtn = document.getElementById('show-storage-btn');
+
+        // Handle show storage button
+        showStorageBtn.addEventListener('click', () => {
+            const loginEmail = localStorage.getItem('loginEmail') || 'Không có';
+            const loginPassword = localStorage.getItem('loginPassword') || 'Không có';
+            const registerEmail = localStorage.getItem('registerEmail') || 'Không có';
+            const registerUsername = localStorage.getItem('registerUsername') || 'Không có';
+            alert(`Dữ liệu lưu trong localStorage:\n\nĐăng nhập:\nEmail: ${loginEmail}\nMật khẩu: ${loginPassword}\n\nĐăng ký:\nEmail: ${registerEmail}\nTên tài khoản: ${registerUsername}`);
+        });
+
+        // Load saved data on page load
+        window.addEventListener('load', () => {
+            const savedLoginEmail = localStorage.getItem('loginEmail');
+            const savedLoginPassword = localStorage.getItem('loginPassword');
+            if (savedLoginEmail) loginEmail.value = savedLoginEmail;
+            if (savedLoginPassword) loginPassword.value = savedLoginPassword;
+            if (savedLoginEmail || savedLoginPassword) loginRemember.checked = true;
+
+            const savedRegisterEmail = localStorage.getItem('registerEmail');
+            const savedRegisterUsername = localStorage.getItem('registerUsername');
+            if (savedRegisterEmail) registerEmail.value = savedRegisterEmail;
+            if (savedRegisterUsername) registerUsername.value = savedRegisterUsername;
+            if (savedRegisterEmail || savedRegisterUsername) registerRemember.checked = true;
+        });
+
+        // Handle login form submit
+        loginSubmit.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent actual submit for demo
+            // Get registered users from localStorage
+            const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
+            // Check if user exists and password matches
+            const user = registeredUsers.find(u => u.email === loginEmail.value && u.password === loginPassword.value);
+            if (user) {
+                if (loginRemember.checked) {
+                    localStorage.setItem('loginEmail', loginEmail.value);
+                    localStorage.setItem('loginPassword', loginPassword.value);
+                } else {
+                    localStorage.removeItem('loginEmail');
+                    localStorage.removeItem('loginPassword');
+                }
+                localStorage.setItem('isLoggedIn', 'true');
+                window.location.href = 'trangchu.html';
+            } else {
+                alert('Tài khoản hoặc mật khẩu sai!'); // Error alert
+            }
+        });
+
+        // Handle register form submit
+        registerSubmit.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent actual submit for demo
+            // Get registered users from localStorage
+            let registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
+            // Check if email already exists
+            const existingUser = registeredUsers.find(user => user.email === registerEmail.value);
+            if (existingUser) {
+                alert('Email đã được đăng ký!'); // Error alert
+                return;
+            }
+            // Check if passwords match
+            if (registerPassword.value !== document.getElementById('register-confirm-password').value) {
+                alert('Mật khẩu xác nhận không khớp!'); // Error alert
+                return;
+            }
+            // Add new user
+            const newUser = {
+                email: registerEmail.value,
+                username: registerUsername.value,
+                password: registerPassword.value
+            };
+            registeredUsers.push(newUser);
+            localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
+            if (registerRemember.checked) {
+                localStorage.setItem('registerEmail', registerEmail.value);
+                localStorage.setItem('registerUsername', registerUsername.value);
+            } else {
+                localStorage.removeItem('registerEmail');
+                localStorage.removeItem('registerUsername');
+            }
+            alert('Đăng ký thành công!'); // Demo alert
+        });
 
         loginToggle.addEventListener('click', () => {
             loginForm.style.display = 'block';
