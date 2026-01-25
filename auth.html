@@ -17,8 +17,8 @@
                 <h2>Đăng nhập</h2>
                 <form>
                     <div class="input-group">
-                        <input type="email" id="login-email" required>
-                        <label for="login-email">Email hoặc số điện thoại</label>
+                        <input type="text" id="login-email" required>
+                        <label for="login-email">Email hoặc Tên tài khoản</label>
                     </div>
                     <div class="input-group">
                         <input type="password" id="login-password" required>
@@ -37,7 +37,7 @@
                 <form>
                     <div class="input-group">
                         <input type="email" id="register-email" required>
-                        <label for="register-email">Email hoặc số điện thoại</label>
+                        <label for="register-email">Email</label>
                     </div>
                     <div class="input-group">
                         <input type="text" id="register-username" required>
@@ -127,7 +127,7 @@
             // Get registered users from localStorage
             const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
             // Check if user exists and password matches
-            const user = registeredUsers.find(u => u.email === loginEmail.value && u.password === loginPassword.value);
+            const user = registeredUsers.find(u => (u.email === loginEmail.value || u.username === loginEmail.value) && u.password === loginPassword.value);
             if (user) {
                 if (loginRemember.checked) {
                     localStorage.setItem('loginEmail', loginEmail.value);
@@ -140,7 +140,7 @@
                 // Clear the login fields after successful login
                 loginEmail.value = '';
                 loginPassword.value = '';
-                window.location.href = 'trangchu.html';
+                window.location.href = 'index.html';
             } else {
                 alert('Tài khoản hoặc mật khẩu sai!'); // Error alert
             }
@@ -178,6 +178,11 @@
                 localStorage.removeItem('registerUsername');
             }
             alert('Đăng ký thành công!'); // Demo alert
+            // Automatically switch to login form after successful registration
+            loginForm.style.display = 'block';
+            registerForm.style.display = 'none';
+            loginToggle.classList.add('active');
+            registerToggle.classList.remove('active');
         });
 
         loginToggle.addEventListener('click', () => {
