@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phim Mới Cinema - Watch Movies Online</title>
+    <link rel="shortcut icon" href="./assets/icon.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/chatbot.css" />
+    <link rel="stylesheet" href="./styles/new-home.css" />
+  </head>
+  <body>
+    <div class="backdrop">
+      <img src="./assets/loading.svg" alt="" />
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="./index.html" class="logo">
+          <span>Phim<span style="color: var(--red)">Mới</span> Cinema</span>
+        </a>
+
+        <div class="nav-links">
+          <a href="./index.html" class="nav-link active">Home</a>
+          <a href="./search.html" class="nav-link">Movies</a>
+          <a href="./genres.html" class="nav-link">Genres</a>
+          <a href="./favorites.html" class="nav-link">My List</a>
+        </div>
+
+        <div class="nav-actions">
+          <div class="search-container">
+            <input type="text" placeholder="Search movies..." id="search-input" />
+            <button id="search-btn">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+          <div id="avatar-action-container"></div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-background" id="hero-background"></div>
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 id="hero-title">Welcome to Phim Mới Cinema</h1>
+          <p id="hero-description">Discover the latest movies, trending shows, and your favorite genres. Stream unlimited entertainment anytime, anywhere.</p>
+          <div class="hero-buttons">
+            <a href="#trending" class="btn btn-primary">
+              <i class="fa-solid fa-play"></i>
+              <span>Explore Now</span>
+            </a>
+            <a href="./search.html" class="btn btn-secondary">
+              <i class="fa-solid fa-search"></i>
+              <span>Search Movies</span>
+            </a>
+          </div>
+        </div>
+        <div class="hero-poster">
+          <img id="hero-poster" src="" alt="Featured Movie" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Trending Movies -->
+      <section class="movie-section" id="trending">
+        <div class="section-header">
+          <h2><i class="fa-solid fa-fire"></i> Trending Now</h2>
+          <a href="./search.html?category=trending" class="see-all">See All</a>
+        </div>
+        <div class="movie-grid" id="trending-grid"></div>
+      </section>
+
+      <!-- Popular Movies -->
+      <section class="movie-section">
+        <div class="section-header">
+          <h2><i class="fa-solid fa-star"></i> Popular Movies</h2>
+          <a href="./search.html?category=popular" class="see-all">See All</a>
+        </div>
+        <div class="movie-grid" id="popular-grid"></div>
+      </section>
+
+      <!-- Top Rated -->
+      <section class="movie-section">
+        <div class="section-header">
+          <h2><i class="fa-solid fa-trophy"></i> Top Rated</h2>
+          <a href="./search.html?category=top_rated" class="see-all">See All</a>
+        </div>
+        <div class="movie-grid" id="top-rated-grid"></div>
+      </section>
+
+      <!-- Now Playing -->
+      <section class="movie-section">
+        <div class="section-header">
+          <h2><i class="fa-solid fa-film"></i> Now Playing</h2>
+          <a href="./search.html?category=now_playing" class="see-all">See All</a>
+        </div>
+        <div class="movie-grid" id="now-playing-grid"></div>
+      </section>
+
+      <!-- Upcoming -->
+      <section class="movie-section">
+        <div class="section-header">
+          <h2><i class="fa-solid fa-calendar"></i> Coming Soon</h2>
+          <a href="./search.html?category=upcoming" class="see-all">See All</a>
+        </div>
+        <div class="movie-grid" id="upcoming-grid"></div>
+      </section>
+
+      <!-- Genres -->
+      <section class="genres-section">
+        <div class="section-header">
+          <h2><i class="fa-solid fa-tags"></i> Browse by Genre</h2>
+        </div>
+        <div class="genres-grid" id="genres-grid">
+          <a href="./search.html?genre=28" class="genre-card">
+            <i class="fa-solid fa-gun"></i>
+            <span>Action</span>
+          </a>
+          <a href="./search.html?genre=35" class="genre-card">
+            <i class="fa-solid fa-laugh"></i>
+            <span>Comedy</span>
+          </a>
+          <a href="./search.html?genre=18" class="genre-card">
+            <i class="fa-solid fa-heart"></i>
+            <span>Drama</span>
+          </a>
+          <a href="./search.html?genre=27" class="genre-card">
+            <i class="fa-solid fa-ghost"></i>
+            <span>Horror</span>
+          </a>
+          <a href="./search.html?genre=878" class="genre-card">
+            <i class="fa-solid fa-robot"></i>
+            <span>Sci-Fi</span>
+          </a>
+          <a href="./search.html?genre=10749" class="genre-card">
+            <i class="fa-solid fa-heart"></i>
+            <span>Romance</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Phim Mới Cinema</h3>
+          <p>Your ultimate destination for streaming movies and TV shows online.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./search.html">Movies</a></li>
+            <li><a href="./genres.html">Genres</a></li>
+            <li><a href="./favorites.html">My List</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Phim Mới Cinema. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="module" src="./scripts/config.js"></script>
+    <script type="module" src="./scripts/new-home.js"></script>
+
+    <script>
+      // Check if logged in
+      const isLoggedIn = localStorage.getItem('isLoggedIn');
+      if (!isLoggedIn) {
+        window.location.href = 'auth.html';
+      }
+
+      // Add logout button to navbar
+      const navbar = document.querySelector('.navbar');
+      const logoutBtn = document.createElement('button');
+      logoutBtn.id = 'logout-btn';
+      logoutBtn.textContent = 'Đăng xuất';
+      logoutBtn.style.cssText = 'background: var(--red); color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;';
+      navbar.appendChild(logoutBtn);
+
+      logoutBtn.addEventListener('click', () => {
+        localStorage.removeItem('isLoggedIn');
+        localStorage.setItem('loginEmail', '');
+        localStorage.setItem('loginPassword', '');
+        localStorage.setItem('registerEmail', '');
+        localStorage.setItem('registerUsername', '');
+        localStorage.removeItem('registeredUsers');
+        window.location.href = 'auth.html';
+      });
+    </script>
+  </body>
+</html>

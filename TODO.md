@@ -1,0 +1,5 @@
+- [x] Integrate authentication logic from trangchu.html into index.html (login check, redirect if not logged in)
+- [x] Add logout button to index.html (perhaps in navbar or a new section)
+- [x] Add storage check functionality to index.html
+- [ ] Remove or archive trangchu.html after merge
+- [ ] Test the merged index.html for functionality
