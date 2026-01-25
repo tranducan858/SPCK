@@ -101,11 +101,18 @@
 
         // Load saved data on page load
         window.addEventListener('load', () => {
-            const savedLoginEmail = localStorage.getItem('loginEmail');
-            const savedLoginPassword = localStorage.getItem('loginPassword');
-            if (savedLoginEmail) loginEmail.value = savedLoginEmail;
-            if (savedLoginPassword) loginPassword.value = savedLoginPassword;
-            if (savedLoginEmail || savedLoginPassword) loginRemember.checked = true;
+            // If user is logged in and returning to login page, clear the fields
+            if (localStorage.getItem('isLoggedIn') === 'true') {
+                loginEmail.value = '';
+                loginPassword.value = '';
+                loginRemember.checked = false;
+            } else {
+                const savedLoginEmail = localStorage.getItem('loginEmail');
+                const savedLoginPassword = localStorage.getItem('loginPassword');
+                if (savedLoginEmail) loginEmail.value = savedLoginEmail;
+                if (savedLoginPassword) loginPassword.value = savedLoginPassword;
+                if (savedLoginEmail || savedLoginPassword) loginRemember.checked = true;
+            }
 
             const savedRegisterEmail = localStorage.getItem('registerEmail');
             const savedRegisterUsername = localStorage.getItem('registerUsername');
@@ -130,6 +137,9 @@
                     localStorage.removeItem('loginPassword');
                 }
                 localStorage.setItem('isLoggedIn', 'true');
+                // Clear the login fields after successful login
+                loginEmail.value = '';
+                loginPassword.value = '';
                 window.location.href = 'trangchu.html';
             } else {
                 alert('Tài khoản hoặc mật khẩu sai!'); // Error alert
