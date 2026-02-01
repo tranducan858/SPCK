@@ -59,9 +59,9 @@ const form = document.getElementById('loginForm');
                     const userData = JSON.parse(storedData);
 
                     // So sánh username và password
-                    if (userData.username === username.value.trim() && 
+                    if (userData.username === username.value.trim() &&
                         userData.password === password.value) {
-                        alert('Đăng nhập thành công!');
+                        localStorage.setItem('loginSuccess', 'true');
                         form.reset();
                         setTimeout(() => {
                             window.location.href = 'index.html';

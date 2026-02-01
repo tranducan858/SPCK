@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <div id="register-form" class="form-container">
+                <h2>Đăng ký</h2>
+                <form id="registerForm">
+                    <div class="input-group">
+                        <input type="email" id="email" required>
+                        <label for="email">Email</label>
+                        <div id="emailError" class="error-message"></div>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" id="username" required>
+                        <label for="username">Tên tài khoản</label>
+                        <div id="usernameError" class="error-message"></div>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="password" required>
+                        <label for="password">Mật khẩu</label>
+                        <div id="passwordError" class="error-message"></div>
+                    </div>
+
+                    <button type="submit" class="login-btn">Đăng ký</button>
+
+                    <div class="options">
+                        <label><input type="checkbox"> Ghi nhớ tôi</label>
+                        <a href="#">Bạn cần trợ giúp?</a>
+                    </div>
+                </form>
+                <div class="account-link">
+                    <p>Đã có tài khoản? <a href="login.html">Đăng nhập ngay</a></p>
+                </div>
+            </div>
+
+            <div class="footer-box">
+                <small>Trang này được bảo vệ bởi Google reCAPTCHA.</small>
+                <button id="show-storage-btn" style="margin-top: 10px; padding: 5px 10px; display: none;">Hiển thị dữ liệu lưu</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/register.js"></script>
+</body>
+</html>

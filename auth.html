@@ -75,17 +75,17 @@
         const registerForm = document.getElementById('register-form');
 
         // Elements for login form
+        const loginFormElement = loginForm.querySelector('form');
         const loginEmail = document.getElementById('login-email');
         const loginPassword = document.getElementById('login-password');
         const loginRemember = loginForm.querySelector('input[type="checkbox"]');
-        const loginSubmit = loginForm.querySelector('.login-btn');
 
         // Elements for register form
+        const registerFormElement = registerForm.querySelector('form');
         const registerEmail = document.getElementById('register-email');
         const registerUsername = document.getElementById('register-username');
         const registerPassword = document.getElementById('register-password');
         const registerRemember = registerForm.querySelector('input[type="checkbox"]');
-        const registerSubmit = registerForm.querySelector('.login-btn');
 
         // Button to show saved data
         const showStorageBtn = document.getElementById('show-storage-btn');
@@ -122,7 +122,7 @@
         });
 
         // Handle login form submit
-        loginSubmit.addEventListener('click', (e) => {
+        loginFormElement.addEventListener('submit', (e) => {
             e.preventDefault(); // Prevent actual submit for demo
             // Get registered users from localStorage
             const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
@@ -147,7 +147,7 @@
         });
 
         // Handle register form submit
-        registerSubmit.addEventListener('click', (e) => {
+        registerFormElement.addEventListener('submit', (e) => {
             e.preventDefault(); // Prevent actual submit for demo
             // Get registered users from localStorage
             let registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
@@ -177,7 +177,6 @@
                 localStorage.removeItem('registerEmail');
                 localStorage.removeItem('registerUsername');
             }
-            alert('Đăng ký thành công!'); // Demo alert
             // Automatically switch to login form after successful registration
             loginForm.style.display = 'block';
             registerForm.style.display = 'none';

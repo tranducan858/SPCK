@@ -83,11 +83,9 @@ const form = document.getElementById('registerForm');
                 // Khi bạn copy code này ra ngoài, phần này sẽ hoạt động bình thường
                 try {
                     localStorage.setItem('userData', JSON.stringify(userData));
-                    alert('Đăng ký thành công!');
+                    localStorage.setItem('showSuccessAlert', 'true');
                     form.reset();
-                    setTimeout(() => {
-                        window.location.href = 'login.html';
-                    });
+                    window.location.href = 'login.html';
                 } catch (error) {
                     alert('Đăng ký thất bại!');
                 }
