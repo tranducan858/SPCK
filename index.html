@@ -297,7 +297,7 @@
       // Check if logged in
       const isLoggedIn = localStorage.getItem('isLoggedIn');
       if (!isLoggedIn) {
-        window.location.href = 'auth.html';
+        window.location.href = 'login.html';
       }
 
       // Add logout button to navbar
@@ -315,8 +315,16 @@
         localStorage.setItem('registerEmail', '');
         localStorage.setItem('registerUsername', '');
         localStorage.removeItem('registeredUsers');
-        window.location.href = 'auth.html';
+        window.location.href = 'login.html';
       });
+      // Hiện thông báo đăng nhập thành công
+      const loginSuccess = localStorage.getItem('loginSuccess');
+
+      if (loginSuccess) {
+       alert('Đăng nhập thành công ✅');
+       localStorage.removeItem('loginSuccess'); // xóa để không hiện lại
+       }
+
     </script>
   </body>
 </html>
