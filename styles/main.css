@@ -133,21 +133,92 @@ footer > div {
 }
 
 .movie-card {
+  width: 200px;
+  height: 300px;
   border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
+
   display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  background: var(--dark-darken);
-  transition: 0.3s;
+  align-items: flex-end;
+  padding: 10px;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transition: transform 0.3s ease;
 }
 
-.movie-card img {
-  height: 300px;
-  width: 200px;
-  object-fit: cover;
+.movie-card:hover {
+  transform: scale(1.05);
 }
+
+.top-rated-1 {
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
+    url("https://thumbor.prod.vidiocdn.com/ZAfry23j-WdfnfGWMpTIghh5U-s=/filters:quality(70)/vidio-media-production/uploads/image/source/19867/fc9003.png");
+}
+.top-rated-2 {
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
+    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT20IYREvnyBkNkgyRdbnD1RatDofuR7PTUlA&s");
+}
+.top-rated-3 {
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
+    url("https://m.media-amazon.com/images/I/91IZAnQJEvL._AC_UF894,1000_QL80_.jpg");
+}
+
+.trending-1 {
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
+    url("");
+}
+.trending-2 {
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
+    url("");
+}
+.trending-3 {
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
+    url("");
+}
+
+.popular-1 {
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
+    url("");
+}
+.popular-2 {
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
+    url("");
+}
+.popular-3 {
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
+    url("");
+}
+
+.upcoming-1 {
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
+    url("");
+}
+.upcoming-2 {
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
+    url("");
+}
+.upcoming-3 {
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
+    url("");
+}
+
+
 
 .movie-card p {
   margin: 8px;
@@ -174,7 +245,7 @@ footer > div {
 /* Hero Section Enhancements */
 .hero {
   position: relative;
-  height: 70vh;
+  height: 90vh;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -187,7 +258,20 @@ footer > div {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.7) 100%);
+
+  background-image: 
+    linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.3) 50%,
+      rgba(0, 0, 0, 0.7) 100%
+    ),
+    url("https://m.media-amazon.com/images/S/pv-target-images/7a5c994068c2d2e3693f67f4c4be805ae54397b079dbfdf93ae41382f15816a4.jpg");
+
+  background-size: cover;        /* 🔥 quan trọng nhất */
+  background-position: center;   /* canh giữa ảnh */
+  background-repeat: no-repeat;  /* không lặp */
+
   z-index: 1;
 }
 
