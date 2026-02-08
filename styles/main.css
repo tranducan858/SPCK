@@ -170,36 +170,83 @@ footer > div {
     url("https://m.media-amazon.com/images/I/91IZAnQJEvL._AC_UF894,1000_QL80_.jpg");
 }
 
+.top-rated-4 {
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
+    url("https://m.media-amazon.com/images/M/MV5BMmJiNjM5MWUtYzM1ZS00YTFiLTkxZWEtOTYwNWEyYTA3NDQ1XkEyXkFqcGc@._V1_.jpg");
+}
+.top-rated-5 {
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
+    url("https://scontent.fhan14-2.fna.fbcdn.net/v/t39.30808-6/519444495_1324146455741361_4996036631609288128_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=C9uOsthk1p4Q7kNvwGx_hIP&_nc_oc=AdnrryDEi1GOTiH6ircCQiwMvHRR827s8OKxU7JNneStpSkhfQqWu_jsJngTmvQVnxY&_nc_zt=23&_nc_ht=scontent.fhan14-2.fna&_nc_gid=bNNkv0SjPdJZMukG4TKqFQ&oh=00_Afs9XNCYIFT1_215ZWRhvzmeQD2xaYm9MlWfG0eb_p9ZMQ&oe=698E20EB");
+}
+.top-rated-6 {
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
+    url("https://tintuc-divineshop.cdn.vccloud.vn/wp-content/uploads/2025/11/zoto2-scaled.jpeg");
+}
+
 .trending-1 {
   background-image:
     linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
-    url("");
+    url("https://tintuc-divineshop.cdn.vccloud.vn/wp-content/uploads/2025/11/zoto2-scaled.jpeg");
 }
 .trending-2 {
   background-image:
     linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
-    url("");
+    url("https://scontent.fhan14-2.fna.fbcdn.net/v/t39.30808-6/519444495_1324146455741361_4996036631609288128_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=C9uOsthk1p4Q7kNvwGx_hIP&_nc_oc=AdnrryDEi1GOTiH6ircCQiwMvHRR827s8OKxU7JNneStpSkhfQqWu_jsJngTmvQVnxY&_nc_zt=23&_nc_ht=scontent.fhan14-2.fna&_nc_gid=bNNkv0SjPdJZMukG4TKqFQ&oh=00_Afs9XNCYIFT1_215ZWRhvzmeQD2xaYm9MlWfG0eb_p9ZMQ&oe=698E20EB");
 }
 .trending-3 {
   background-image:
     linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
-    url("");
+    url("https://m.media-amazon.com/images/M/MV5BMmJiNjM5MWUtYzM1ZS00YTFiLTkxZWEtOTYwNWEyYTA3NDQ1XkEyXkFqcGc@._V1_.jpg");
+}
+
+.trending-4 {
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
+  url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe9UWi-yDo1AGA1FJLfRYvCOEICduiUtDobg&s");
+}
+.trending-5 {
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
+  url("https://kscequinox.com/wp-content/uploads/2026/02/ironlung.webp");
+}
+.trending-6 {
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
+  url("https://m.media-amazon.com/images/M/MV5BYWE2NmNmYTItZGY0ZC00MmY2LTk1NDAtMGUyMGEzMjcxNWM0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg");
 }
 
 .popular-1 {
   background-image:
     linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
-    url("");
+    url("https://play-lh.googleusercontent.com/QcTi3qyNBmST6UhO4bfwT-Qp5EC1eIJPPJgsF74wq0n5i7fBbWJ7gPcTnuabbvPujeyPrJpedpexISh3qg");
 }
 .popular-2 {
   background-image:
     linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
-    url("");
+    url("https://scontent.fhan14-2.fna.fbcdn.net/v/t39.30808-6/519444495_1324146455741361_4996036631609288128_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=127cfc&_nc_ohc=C9uOsthk1p4Q7kNvwGx_hIP&_nc_oc=AdnrryDEi1GOTiH6ircCQiwMvHRR827s8OKxU7JNneStpSkhfQqWu_jsJngTmvQVnxY&_nc_zt=23&_nc_ht=scontent.fhan14-2.fna&_nc_gid=bNNkv0SjPdJZMukG4TKqFQ&oh=00_Afs9XNCYIFT1_215ZWRhvzmeQD2xaYm9MlWfG0eb_p9ZMQ&oe=698E20EB");
 }
 .popular-3 {
   background-image:
     linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
-    url("");
+  url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe9UWi-yDo1AGA1FJLfRYvCOEICduiUtDobg&s");
+}
+.popular-4 {
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
+    url("https://m.media-amazon.com/images/M/MV5BZGZmOTZjNzUtOTE4OS00OGM3LWJiNGEtZjk4Yzg2M2Q1YzYxXkEyXkFqcGc@._V1_.jpg");
+}
+.popular-5 {
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
+    url("https://tintuc-divineshop.cdn.vccloud.vn/wp-content/uploads/2025/11/zoto2-scaled.jpeg");
+}
+.popular-6 {
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
+    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZfroROZTMk-dicVx6sSrDbFqkRLoZvcwb0g&s");
 }
 
 .upcoming-1 {
