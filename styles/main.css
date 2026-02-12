@@ -252,18 +252,34 @@ footer > div {
 .upcoming-1 {
   background-image:
     linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
-    url("");
+    url("https://preview.redd.it/first-poster-for-agit%CF%89-psychic-war-the-25th-anniversary-v0-1g2zrrtm6tfg1.jpeg?width=640&crop=smart&auto=webp&s=a89848342717c706fa2d1007aeb0942168821506");
 }
 .upcoming-2 {
   background-image:
     linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
-    url("");
+    url("https://preview.redd.it/spider-man-brand-new-day-as-ultimate-spider-man-2024-cover-v0-jpw1tpp43whf1.jpg?width=640&crop=smart&auto=webp&s=99dd14543542bd56af2945a6f5bab2b6144b7da5");
 }
 .upcoming-3 {
   background-image:
     linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
-    url("");
+    url("https://preview.redd.it/scream-7-opinion-v0-0d2ehzselb6b1.jpg?width=640&crop=smart&auto=webp&s=d69bc9d3fb8e31cc39c7e29d5ab7a191ca425672");
 }
+.upcoming-4 {
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
+    url("https://m.media-amazon.com/images/M/MV5BOWFlZmZiNWMtY2U4Mi00ZGY1LTgzZTItMTkxZjczNjAyNGI0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg");
+}
+.upcoming-5 {
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
+    url("https://a.ltrbxd.com/resized/film-poster/1/0/5/8/1/3/2/1058132-crime-101-0-230-0-345-crop.jpg?v=2d56a4fec3");
+}
+.upcoming-6 {
+  background-image:
+    linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1)),
+    url("https://upload.wikimedia.org/wikipedia/en/e/e5/GOAT_poster.jpg");
+}
+
 
 
 
