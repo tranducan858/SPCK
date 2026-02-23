@@ -72,11 +72,9 @@
           <h2><i class="fa-solid fa-fire"></i> Trending Now</h2>
 
       <div class="movie-grid" id="additional-trending-grid">
-        <a href="./Trending1.html">
-          <div class="movie-card trending-1">
-            <p>Trending 1</p>
-          </div>
-        </a>
+        <div class="movie-card trending-1" data-movie="Zootopia 2">
+         <p>Zootopia 2</p>
+        </div>
 
         <a href="./Trending2.html">
           <div class="movie-card trending-2">
@@ -258,6 +256,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script type="module" src="./scripts/config.js"></script>
     <script type="module" src="./scripts/new-home.js"></script>
+    <script src="./scripts/card-api.js"></script>
 
     <script>
       // Check if logged in
@@ -292,5 +291,43 @@
        }
 
     </script>
+    <div id="movieModal" class="movie-modal">
+  <div class="movie-modal-content">
+
+    <span class="movie-modal-close" id="closeModal">&times;</span>
+
+    <div class="movie-modal-body">
+      <img id="modalPoster"/>
+
+      <div class="movie-modal-info">
+        <h2 id="modalTitle"></h2>
+
+        <div class="hero-score" id="modalScore"></div>
+
+        <p id="modalOverview"></p>
+        <p id="modalDate"></p>
+
+        <!-- TRAILER -->
+        <div class="trailer-box">
+          <iframe id="modalTrailer" allowfullscreen></iframe>
+        </div>
+
+        <!-- RATING -->
+        <h3>Đánh giá của bạn</h3>
+
+        <div class="stars" id="modalStars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+
+        <textarea id="modalComment" placeholder="Viết nhận xét..."></textarea>
+        <button id="saveReviewBtn">Gửi đánh giá</button>
+
+        <div id="modalReviews"></div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
   </body>
 </html>
