@@ -1,127 +1,155 @@
-const ACCESS_TOKEN="eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiZDEzYWM2ZmU2MzhjOGMxMDE1ZmM1NmNjZGI0ZTU2YyIsIm5iZiI6MTc3MTg2MDYwOC45NDUsInN1YiI6IjY5OWM3MjgwMTU3OGJhZWI3NGZjMmZlMCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.MENEQWVdGm4u9gdF6T1xPkqbhgTXG0b16GDMtd3bYlo";
-
 document.addEventListener("DOMContentLoaded",()=>{
 
-  const modal=document.getElementById("movieModal");
-  const closeBtn=document.getElementById("closeModal");
+const API_KEY="bd13ac6fe638c8c1015fc56ccdb4e56c";
+const BASE="https://api.themoviedb.org/3";
 
-  let currentMovie=null;
-  let rating=0;
+// ===== MODAL ELEMENT =====
+const modal=document.getElementById("movieModal");
+const closeBtn=document.getElementById("closeModal");
 
-  closeBtn.onclick=()=>modal.classList.remove("show");
-  modal.onclick=e=>{ if(e.target===modal) modal.classList.remove("show"); };
+const poster=document.getElementById("modalPoster");
+const title=document.getElementById("modalTitle");
+const score=document.getElementById("modalScore");
+const overview=document.getElementById("modalOverview");
+const date=document.getElementById("modalDate");
+const trailer=document.getElementById("modalTrailer");
 
-  /* chọn sao */
-  document.querySelectorAll("#modalStars span").forEach((s,i)=>{
-    s.onclick=()=>{
-      rating=i+1;
-      document.querySelectorAll("#modalStars span")
-        .forEach((x,idx)=>x.classList.toggle("active",idx<rating));
-    };
-  });
+const stars=document.querySelectorAll("#modalStars span");
+const comment=document.getElementById("modalComment");
+const reviewsBox=document.getElementById("modalReviews");
+const saveBtn=document.getElementById("saveReviewBtn");
 
-  /* lưu review */
-  document.getElementById("saveReviewBtn").onclick=()=>{
-    const text=document.getElementById("modalComment").value.trim();
-    if(!currentMovie || !rating || !text) return;
+let selectedStars=0;
 
-    const key="reviews_"+currentMovie.id;
-    const list=JSON.parse(localStorage.getItem(key)||"[]");
-    list.push({rating,text});
-    localStorage.setItem(key,JSON.stringify(list));
 
-    document.getElementById("modalComment").value="";
-    rating=0;
-    loadReviews();
-    document.querySelectorAll("#modalStars span").forEach(s=>s.classList.remove("active"));
-  };
+// ================= CLICK CARD =================
+document.querySelectorAll(".movie-card[data-movie]").forEach(card=>{
+card.addEventListener("click",()=>{
+const name=card.dataset.movie;
+loadMovie(name);
+});
+});
 
-  function loadReviews(){
-    const key="reviews_"+currentMovie.id;
-    const list=JSON.parse(localStorage.getItem(key)||"[]");
 
-    const box=document.getElementById("modalReviews");
-    box.innerHTML="";
-    list.slice().reverse().forEach(r=>{
-      const div=document.createElement("div");
-      div.className="review";
-      div.innerHTML=`${"★".repeat(r.rating)}${"☆".repeat(5-r.rating)}<br>${r.text}`;
-      box.appendChild(div);
-    });
-  }
+// ================= LOAD MOVIE =================
+async function loadMovie(name){
 
-  /* click card */
-  document.querySelectorAll(".movie-card").forEach(card=>{
+reviewsBox.innerHTML=""; // reset review khi mở phim mới
 
-    card.onclick=async()=>{
+const res=await fetch(
+`${BASE}/search/movie?api_key=${API_KEY}&query=${encodeURIComponent(name)}`
+);
 
-      const movieName=card.dataset.movie;
-      if(!movieName) return;
+const data=await res.json();
+if(!data.results.length)return;
 
-      const res=await fetch(
-        `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(movieName)}&language=vi-VN`,
-        {headers:{Authorization:`Bearer ${ACCESS_TOKEN}`}}
-      );
+const movie=data.results[0];
 
-      const data=await res.json();
-      if(!data.results?.length) return;
 
-      const movie=data.results[0];
-      currentMovie=movie;
+// POSTER
+poster.src=movie.poster_path
+?`https://image.tmdb.org/t/p/w500${movie.poster_path}`
+:"";
 
-      const percent=Math.round((movie.vote_average||0)*10);
 
-      /* HERO UPDATE */
-      document.getElementById("hero-title").textContent=movie.title;
-      document.getElementById("hero-description").textContent=movie.overview||"";
+// TEXT
+title.textContent=movie.title;
+overview.textContent=movie.overview||"Không có mô tả";
+date.textContent="Release: "+movie.release_date;
 
-      if(movie.backdrop_path){
-        const bg=document.getElementById("hero-background");
-        bg.style.backgroundImage=`url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`;
-        bg.style.backgroundSize="cover";
-        bg.style.backgroundPosition="center";
-      }
 
-      let heroScore=document.getElementById("heroScoreCircle");
-      if(!heroScore){
-        heroScore=document.createElement("div");
-        heroScore.id="heroScoreCircle";
-        heroScore.className="hero-score";
-        heroScore.style.position="absolute";
-        heroScore.style.right="40px";
-        heroScore.style.bottom="40px";
-        document.querySelector(".hero").appendChild(heroScore);
-      }
-      heroScore.style.setProperty("--percent",percent+"%");
-      heroScore.innerHTML=`<span>${percent}%</span>`;
+// ===== SCORE %
+const percent=movie.vote_average
+?Math.round(movie.vote_average*10)
+:0;
 
-      /* MODAL INFO */
-      document.getElementById("modalTitle").textContent=movie.title;
-      document.getElementById("modalOverview").textContent=movie.overview||"";
-      document.getElementById("modalDate").textContent=movie.release_date||"";
+score.innerHTML=`
+<div style="
+width:90px;
+height:90px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:bold;
+font-size:20px;
+color:white;
+background:conic-gradient(#22c55e ${percent}%, #333 0);
+box-shadow:0 0 15px rgba(0,0,0,.5);
+">
+${percent}%
+</div>
+`;
 
-      document.getElementById("modalPoster").src=
-        movie.poster_path?`https://image.tmdb.org/t/p/w500${movie.poster_path}`:"";
 
-      const modalScore=document.getElementById("modalScore");
-      modalScore.style.setProperty("--percent",percent+"%");
-      modalScore.innerHTML=`<span>${percent}%</span>`;
+// ===== TRAILER
+const v=await fetch(
+`${BASE}/movie/${movie.id}/videos?api_key=${API_KEY}`
+);
+const vd=await v.json();
 
-      /* TRAILER */
-      const v=await fetch(
-        `https://api.themoviedb.org/3/movie/${movie.id}/videos`,
-        {headers:{Authorization:`Bearer ${ACCESS_TOKEN}`}}
-      );
-      const vd=await v.json();
+const tr=vd.results.find(
+x=>x.site==="YouTube"&&x.type==="Trailer"
+);
 
-      const trailer=vd.results.find(x=>x.site==="YouTube" && x.type==="Trailer");
-      document.getElementById("modalTrailer").src=
-        trailer?`https://www.youtube.com/embed/${trailer.key}`:"";
+trailer.src=tr
+?`https://www.youtube.com/embed/${tr.key}`
+:"";
 
-      loadReviews();
-      modal.classList.add("show");
-    };
 
-  });
+// ===== OPEN MODAL
+modal.style.display="flex";
+}
+
+
+
+// ================= STAR CLICK =================
+stars.forEach((star,i)=>{
+star.onclick=()=>{
+selectedStars=i+1;
+stars.forEach((s,index)=>{
+s.style.color=index<selectedStars?"#facc15":"#777";
+});
+};
+});
+
+
+// ================= SAVE REVIEW =================
+saveBtn.onclick=()=>{
+
+if(selectedStars===0){
+alert("Hãy chọn số sao ⭐");
+return;
+}
+
+const text=comment.value.trim();
+
+const review=document.createElement("div");
+review.style.borderBottom="1px solid #333";
+review.style.margin="10px 0";
+review.style.padding="8px 0";
+
+review.innerHTML=`
+<div style="color:#facc15">${"★".repeat(selectedStars)}</div>
+${text?`<div style="color:#ccc">${text}</div>`:""}
+`;
+
+reviewsBox.prepend(review);
+
+// reset
+comment.value="";
+selectedStars=0;
+stars.forEach(s=>s.style.color="#777");
+
+};
+
+
+
+// ================= CLOSE MODAL =================
+closeBtn.onclick=()=>modal.style.display="none";
+
+window.onclick=e=>{
+if(e.target===modal) modal.style.display="none";
+};
 
 });

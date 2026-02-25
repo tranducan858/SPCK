@@ -528,8 +528,17 @@ footer > div {
 }
 
 .movie-modal-body{
-  display:flex;
-  gap:20px;
+display:flex;
+gap:20px;
+align-items:flex-start;
+}
+
+#modalPoster{
+width:220px;
+height:auto;
+object-fit:cover;
+border-radius:12px;
+flex-shrink:0;
 }
 
 .movie-modal-body img{
@@ -576,9 +585,14 @@ footer > div {
 }
 
 .stars span{
-  font-size:28px;
-  cursor:pointer;
-  color:gray;
+font-size:28px;
+cursor:pointer;
+color:#777;
+transition:.2s;
+}
+
+.stars span:hover{
+transform:scale(1.2);
 }
 
 .stars span.active{ color:gold; }
