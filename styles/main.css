@@ -508,51 +508,55 @@ footer > div {
   z-index:9999;
 }
 
-.movie-modal.show{ display:flex; }
+.movie-modal.show{
+  display:flex;
+}
 
 .movie-modal-content{
-  background:#111827;
-  width:800px;
+  background:#0f172a;
+  width:720px;
   max-width:95%;
   border-radius:14px;
   padding:20px;
   position:relative;
-}
 
+  height:auto;          /* QUAN TRỌNG */
+  max-height:85vh;      /* không vượt màn hình */
+  overflow-y:auto;      /* scroll khi dài */
+}
 .movie-modal-close{
   position:absolute;
-  right:18px;
+  right:15px;
   top:10px;
-  font-size:32px;
+  font-size:26px;
   cursor:pointer;
+  color:white;
 }
 
 .movie-modal-body{
-display:flex;
-gap:20px;
-align-items:flex-start;
+  display:flex;
+  gap:20px;
+  align-items:flex-start;
 }
 
+/* POSTER */
 #modalPoster{
-width:220px;
-height:auto;
-object-fit:cover;
-border-radius:12px;
-flex-shrink:0;
+  width:200px;
+  height:auto;
+  border-radius:12px;
+  flex-shrink:0;
+  object-fit:cover;
 }
 
-.movie-modal-body img{
-  width:220px;
-  border-radius:10px;
+/* INFO */
+.movie-modal-info{
+  flex:1;
 }
 
-.movie-modal-info{ flex:1; }
-
-/* ===== HERO SCORE CIRCLE ===== */
-
+/* SCORE */
 .hero-score{
-  width:70px;
-  height:70px;
+  width:65px;
+  height:65px;
   border-radius:50%;
   display:flex;
   align-items:center;
@@ -566,8 +570,8 @@ flex-shrink:0;
 .hero-score::before{
   content:"";
   position:absolute;
-  width:52px;
-  height:52px;
+  width:48px;
+  height:48px;
   background:#020617;
   border-radius:50%;
 }
@@ -575,31 +579,38 @@ flex-shrink:0;
 .hero-score span{
   position:relative;
   z-index:1;
-}
-.trailer-box iframe{
-  width:100%;
-  height:220px;
-  border:none;
-  border-radius:8px;
-  margin:10px 0;
+  font-size:14px;
 }
 
+/* TRAILER */
+.trailer-box iframe{
+  width:100%;
+  height:200px;     /* giảm xuống cho gọn */
+  border:none;
+  border-radius:8px;
+  margin:8px 0;
+}
+
+/* STAR */
 .stars span{
-font-size:28px;
-cursor:pointer;
-color:#777;
-transition:.2s;
+  font-size:24px;
+  cursor:pointer;
+  color:#777;
+  transition:.2s;
 }
 
 .stars span:hover{
-transform:scale(1.2);
+  transform:scale(1.2);
 }
 
-.stars span.active{ color:gold; }
+.stars span.active{
+  color:gold;
+}
 
+/* COMMENT */
 #modalComment{
   width:100%;
-  height:70px;
+  height:65px;
   margin:8px 0;
   padding:8px;
   border-radius:8px;
@@ -607,7 +618,7 @@ transform:scale(1.2);
 }
 
 #saveReviewBtn{
-  padding:8px 12px;
+  padding:8px 14px;
   border:none;
   border-radius:8px;
   background:#22c55e;
@@ -615,6 +626,7 @@ transform:scale(1.2);
   cursor:pointer;
 }
 
+/* REVIEW */
 .review{
   background:#1f2937;
   padding:8px;
