@@ -1,5 +1,6 @@
 import { TMDB_API_KEY } from "./config.js";
 
+
 (async () => {
   const API_BASE_URL = "https://api.themoviedb.org/3";
   const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
@@ -109,12 +110,24 @@ import { TMDB_API_KEY } from "./config.js";
     const searchInput = document.getElementById('search-input');
     const searchBtn = document.getElementById('search-btn');
 
-    const performSearch = () => {
-      const query = searchInput.value.trim();
-      if (query) {
-        window.location.href = `./search.html?q=${encodeURIComponent(query)}`;
-      }
-    };
+  const performSearch = async () => {
+   const query = searchInput.value.trim();
+   if (!query) return;
+
+   const res = await fetch(
+    `https://api.themoviedb.org/3/search/movie?api_key=${TMDB_API_KEY}&query=${encodeURIComponent(query)}`
+   );
+
+   const data = await res.json();
+
+   if (!data.results || data.results.length === 0) {
+    alert("Không tìm thấy phim!");
+    return;
+   }
+
+   const movie = data.results[0];
+   openMovieModal(movie);
+  };
 
     if (searchBtn) {
       searchBtn.addEventListener('click', performSearch);
@@ -160,5 +173,45 @@ import { TMDB_API_KEY } from "./config.js";
 
   // Start the application
   await init();
+
+
+// ==========================
+// HÀM MỞ MODAL
+// ==========================
+
+async function openMovieModal(movie) {
+  document.getElementById("modalTitle").innerText =
+    movie.title || movie.name;
+
+  document.getElementById("modalOverview").innerText =
+    movie.overview;
+
+  document.getElementById("modalPoster").src =
+    `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+
+  document.getElementById("modalDate").innerText =
+    "Ngày phát hành: " + movie.release_date;
+
+  document.getElementById("movieModal").style.display = "flex";
+
+  // LOAD TRAILER
+  const videoRes = await fetch(
+    `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=${TMDB_API_KEY}`
+  );
+
+  const videoData = await videoRes.json();
+
+  const trailer = videoData.results.find(
+    (v) => v.type === "Trailer" && v.site === "YouTube"
+  );
+
+  if (trailer) {
+    document.getElementById(
+      "modalTrailer"
+    ).src = `https://www.youtube.com/embed/${trailer.key}`;
+  } else {
+    document.getElementById("modalTrailer").src = "";
+  }
+}
 
 })();

@@ -4,7 +4,7 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/10.8.0/firebase
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBOsU_p-uU6FDkv8AksctK-eXTXko1J8Ng",
+  apiKey: "bd13ac6fe638c8c1015fc56ccdb4e56c",
   authDomain: "ecommerce-vanillajs.firebaseapp.com",
   projectId: "ecommerce-vanillajs",
   storageBucket: "ecommerce-vanillajs.appspot.com",

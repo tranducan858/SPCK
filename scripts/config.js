@@ -6,7 +6,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 import { auth } from "./firebase.js";
 
-export const TMDB_API_KEY = "9b7c3ede447b14c5e0e9d33a137ddac9";
+export const TMDB_API_KEY = "bd13ac6fe638c8c1015fc56ccdb4e56c";
 
 addEventListener("scroll", () => {
   if (window.scrollY === 0) {

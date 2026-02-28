@@ -55,10 +55,10 @@
               <i class="fa-solid fa-play"></i>
               <span>Explore Now</span>
             </a>
-            <a href="./search.html" class="btn btn-secondary">
+            <div class="btn btn-secondary">
               <i class="fa-solid fa-search"></i>
               <span>Search Movies</span>
-            </a>
+            </div>
           </div>
         </div>
       </div>
@@ -195,27 +195,27 @@
           <h2><i class="fa-solid fa-tags"></i> Browse by Genre</h2>
         </div>
         <div class="genres-grid" id="genres-grid">
-          <a href="./search.html?genre=28" class="genre-card">
+          <a href="#" class="genre-card">
             <i class="fa-solid fa-gun"></i>
             <span>Action</span>
           </a>
-          <a href="./search.html?genre=35" class="genre-card">
+          <a href="#" class="genre-card">
             <i class="fa-solid fa-laugh"></i>
             <span>Comedy</span>
           </a>
-          <a href="./search.html?genre=18" class="genre-card">
+          <a href="#" class="genre-card">
             <i class="fa-solid fa-heart"></i>
             <span>Drama</span>
           </a>
-          <a href="./search.html?genre=27" class="genre-card">
+          <a href="#" class="genre-card">
             <i class="fa-solid fa-ghost"></i>
             <span>Horror</span>
           </a>
-          <a href="./search.html?genre=878" class="genre-card">
+          <a href="#" class="genre-card">
             <i class="fa-solid fa-robot"></i>
             <span>Sci-Fi</span>
           </a>
-          <a href="./search.html?genre=10749" class="genre-card">
+          <a href="#" class="genre-card">
             <i class="fa-solid fa-heart"></i>
             <span>Romance</span>
           </a>
@@ -263,7 +263,7 @@
       const logoutBtn = document.createElement('button');
       logoutBtn.id = 'logout-btn';
       logoutBtn.textContent = 'Đăng xuất';
-      logoutBtn.style.cssText = 'background: var(--red); color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;';
+      logoutBtn.style.cssText = 'background: var(--red); color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;font-size: 16px';
       navbar.appendChild(logoutBtn);
 
       logoutBtn.addEventListener('click', () => {

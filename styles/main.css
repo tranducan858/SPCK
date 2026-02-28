@@ -81,6 +81,11 @@ a {
   transition: 0.3s;
   background: transparent;
   border-bottom: 2px solid transparent;
+  font-size: 28px;
+}
+
+#search-input{
+  font-size: 22px;
 }
 
 .navbar-background-visible {
@@ -305,7 +310,7 @@ footer > div {
   margin-top: 16px;
 }
 
-/* Hero Section Enhancements */
+/* nav Section Enhancements */
 .hero {
   position: relative;
   height: 90vh;
