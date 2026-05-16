@@ -34,6 +34,26 @@ body, html {
     font-size: 2rem;
 }
 
+.social-login{
+    margin-top:20px;
+}
+
+.google-btn{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:5px;
+    background:#ffffff;
+    color:#000;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.google-btn:hover{
+    opacity:0.9;
+}
+
 .toggle-buttons {
     display: flex;
     justify-content: center;

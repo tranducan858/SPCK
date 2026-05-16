@@ -7,40 +7,68 @@
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-    <div class="login-container">
-        <div class="login-box">
-            <div id="login-form" class="form-container">
-                <h2>Đăng nhập</h2>
-                <form id="loginForm">
-                    <div class="input-group">
-                        <input type="text" id="username" required>
-                        <label for="username">Email hoặc Tên tài khoản</label>
-                        <div id="usernameError" class="error-message"></div>
-                    </div>
-                    <div class="input-group">
-                        <input type="password" id="password" required>
-                        <label for="password">Mật khẩu</label>
-                        <div id="passwordError" class="error-message"></div>
-                    </div>
-                    <button type="submit" class="login-btn">Đăng nhập</button>
 
-                    <div class="options">
-                        <label><input type="checkbox"> Ghi nhớ tôi</label>
-                        <a href="#">Bạn cần trợ giúp?</a>
-                    </div>
-                </form>
-                <div class="account-link">
-                    <p>Chưa có tài khoản? <a href="register.html">Đăng ký ngay</a></p>
+<div class="login-container">
+    <div class="login-box">
+
+        <div id="login-form" class="form-container">
+
+            <h2>Đăng nhập</h2>
+
+            <form id="loginForm">
+
+                <div class="input-group">
+                    <input type="email" id="username" required>
+                    <label for="username">Email</label>
+                    <div id="usernameError" class="error-message"></div>
                 </div>
+
+                <div class="input-group">
+                    <input type="password" id="password" required>
+                    <label for="password">Mật khẩu</label>
+                    <div id="passwordError" class="error-message"></div>
+                </div>
+
+                <button type="submit" class="login-btn">
+                  Đăng nhập
+                </button>
+
+                <div class="social-login">
+                    <button type="button" id="googleLogin" class="google-btn">
+                      Đăng nhập bằng Google 
+                    </button>
+                </div>
+
+                <div class="options">
+                    <label>
+                        <input type="checkbox">
+                        Ghi nhớ tôi
+                    </label>
+
+                    <a href="#">Bạn cần trợ giúp?</a>
+                </div>
+
+            </form>
+
+            <div class="account-link">
+                <p>
+                    Chưa có tài khoản?
+                    <a href="register.html">Đăng ký ngay</a>
+                </p>
             </div>
 
-            <div class="footer-box">
-                <small>Trang này được bảo vệ bởi Google reCAPTCHA.</small>
-                <button id="show-storage-btn" style="margin-top: 10px; padding: 5px 10px; display: none;">Hiển thị dữ liệu lưu</button>
-            </div>
         </div>
-    </div>
 
-    <script src="scripts/login.js"></script>
+        <div class="footer-box">
+            <small>
+                Trang này được bảo vệ bởi Google reCAPTCHA.
+            </small>
+        </div>
+
+    </div>
+</div>
+
+<script type="module" src="./scripts/login.js"></script>
+
 </body>
 </html>
